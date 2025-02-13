@@ -4,17 +4,22 @@
  */
 package ec.edu.espoch.gestionproductos.vista;
 
+import ec.edu.espoch.gestionproductos.controlador.Controlador;
+
 /**
  *
  * @author jordy
  */
 public class Principal extends javax.swing.JFrame {
+        private Controlador controlador;
+
 
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        //this.controlador = new Controlador(this);
     }
 
     /**
@@ -26,57 +31,245 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGroupEstado = new javax.swing.ButtonGroup();
+        lbdTitulo = new javax.swing.JLabel();
+        lbdNombreProducto = new javax.swing.JLabel();
+        textAgregarProducto = new javax.swing.JTextField();
+        BtnGuardar = new javax.swing.JButton();
+        BtnLimpiar = new javax.swing.JButton();
+        lbdError = new javax.swing.JLabel();
+        lbdPrecio = new javax.swing.JLabel();
+        textPrecio = new javax.swing.JTextField();
+        rdbDisponible = new javax.swing.JRadioButton();
+        rdbNodisponible = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1Listar = new javax.swing.JMenu();
+        jMenuItemListarProductos = new javax.swing.JMenuItem();
+        jMenu2Salir = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbdTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbdTitulo.setText("Gestión de Productos");
+
+        lbdNombreProducto.setText("Nombre del producto:");
+
+        textAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textAgregarProductoActionPerformed(evt);
+            }
+        });
+
+        BtnGuardar.setText("Guardar");
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarActionPerformed(evt);
+            }
+        });
+
+        BtnLimpiar.setText("Limpiar");
+        BtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLimpiarActionPerformed(evt);
+            }
+        });
+
+        lbdError.setText("------------------------");
+
+        lbdPrecio.setText("Precio:");
+
+        textPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPrecioActionPerformed(evt);
+            }
+        });
+
+        btnGroupEstado.add(rdbDisponible);
+        rdbDisponible.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rdbDisponible.setText("Sí");
+        rdbDisponible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbDisponibleActionPerformed(evt);
+            }
+        });
+
+        btnGroupEstado.add(rdbNodisponible);
+        rdbNodisponible.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rdbNodisponible.setText("No");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("Disponible: ");
+
+        jMenu1Listar.setText("Producto");
+
+        jMenuItemListarProductos.setText("Listar Productos");
+        jMenuItemListarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemListarProductosActionPerformed(evt);
+            }
+        });
+        jMenu1Listar.add(jMenuItemListarProductos);
+
+        jMenuBar1.add(jMenu1Listar);
+
+        jMenu2Salir.setText("Salir");
+        jMenu2Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2SalirActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2Salir);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbdTitulo)
+                .addGap(76, 76, 76))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(153, 153, 153)
+                                .addComponent(textPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbdPrecio))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(33, 33, 33)
+                            .addComponent(lbdNombreProducto))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(47, 47, 47)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(textAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(BtnGuardar)
+                                        .addGap(139, 139, 139)
+                                        .addComponent(BtnLimpiar))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(82, 82, 82)
+                                        .addComponent(lbdError))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(rdbDisponible)
+                        .addGap(86, 86, 86)
+                        .addComponent(rdbNodisponible)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lbdTitulo)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbdNombreProducto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbdPrecio))
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdbDisponible)
+                    .addComponent(rdbNodisponible))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnGuardar)
+                    .addComponent(BtnLimpiar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(lbdError)
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void textAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAgregarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textAgregarProductoActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
+    private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_BtnGuardarActionPerformed
+
+    private void textPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textPrecioActionPerformed
+
+    private void rdbDisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbDisponibleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdbDisponibleActionPerformed
+
+    private void BtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarActionPerformed
+        // TODO add your handling code here:
+        Limpiar();
+    }//GEN-LAST:event_BtnLimpiarActionPerformed
+
+    private void jMenu2SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2SalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jMenu2SalirActionPerformed
+
+    private void jMenuItemListarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarProductosActionPerformed
+        // TODO add your handling code here:
+        ListarProductos objListar = new ListarProductos();
+        objListar.setVisible(true);
+        objListar.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItemListarProductosActionPerformed
+
+    public String getNombre() {
+        return textAgregarProducto.getText();
+    }
+
+    public String getPrecio() {
+        return textPrecio.getText();
+    }
+    
+    public boolean getEstado(){
+     return rdbDisponible.isSelected();
+    }
+
+    public void error(String error) {
+        lbdError.setText(error);
+    }
+    
+    public void Limpiar(){
+        textAgregarProducto.setText("");
+        textPrecio.setText("");
+        rdbDisponible.setSelected(false);
+        rdbNodisponible.setSelected(false);
+        lbdError.setText("------------------------");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnGuardar;
+    private javax.swing.JButton BtnLimpiar;
+    private javax.swing.ButtonGroup btnGroupEstado;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1Listar;
+    private javax.swing.JMenu jMenu2Salir;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemListarProductos;
+    private javax.swing.JLabel lbdError;
+    private javax.swing.JLabel lbdNombreProducto;
+    private javax.swing.JLabel lbdPrecio;
+    private javax.swing.JLabel lbdTitulo;
+    private javax.swing.JRadioButton rdbDisponible;
+    private javax.swing.JRadioButton rdbNodisponible;
+    private javax.swing.JTextField textAgregarProducto;
+    private javax.swing.JTextField textPrecio;
     // End of variables declaration//GEN-END:variables
 }
