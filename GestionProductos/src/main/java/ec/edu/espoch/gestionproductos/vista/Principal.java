@@ -26,57 +26,187 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbdTitulo = new javax.swing.JLabel();
+        lbdNombreProducto = new javax.swing.JLabel();
+        textAgregarProducto = new javax.swing.JTextField();
+        BtnGuardar = new javax.swing.JButton();
+        BtnLimpiar = new javax.swing.JButton();
+        lbdError = new javax.swing.JLabel();
+        lbdPrecio = new javax.swing.JLabel();
+        textPrecio = new javax.swing.JTextField();
+        rdbDisponible = new javax.swing.JRadioButton();
+        rdbNodisponible = new javax.swing.JRadioButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1Listar = new javax.swing.JMenu();
+        jMenuItemListarProductos = new javax.swing.JMenuItem();
+        jMenu2Salir = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbdTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbdTitulo.setText("Gestión de Productos");
+
+        lbdNombreProducto.setText("Nombre del producto:");
+
+        textAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textAgregarProductoActionPerformed(evt);
+            }
+        });
+
+        BtnGuardar.setText("Guardar");
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarActionPerformed(evt);
+            }
+        });
+
+        BtnLimpiar.setText("Limpiar");
+
+        lbdError.setText("------------------------");
+
+        lbdPrecio.setText("Precio:");
+
+        textPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPrecioActionPerformed(evt);
+            }
+        });
+
+        rdbDisponible.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rdbDisponible.setText("Disponible");
+        rdbDisponible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbDisponibleActionPerformed(evt);
+            }
+        });
+
+        rdbNodisponible.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rdbNodisponible.setText("Disponible");
+
+        jMenu1Listar.setText("Producto");
+
+        jMenuItemListarProductos.setText("Listar Productos");
+        jMenu1Listar.add(jMenuItemListarProductos);
+
+        jMenuBar1.add(jMenu1Listar);
+
+        jMenu2Salir.setText("Salir");
+        jMenuBar1.add(jMenu2Salir);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbdTitulo)
+                .addGap(76, 76, 76))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(153, 153, 153)
+                            .addComponent(textPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbdPrecio))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(186, 186, 186)
+                            .addComponent(textAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(133, 133, 133)
+                            .addComponent(lbdError)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(lbdNombreProducto))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BtnGuardar)
+                                .addGap(139, 139, 139)
+                                .addComponent(BtnLimpiar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rdbDisponible)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rdbNodisponible)
+                                .addGap(9, 9, 9)))))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lbdTitulo)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbdNombreProducto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbdPrecio))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdbDisponible)
+                    .addComponent(rdbNodisponible))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnGuardar)
+                    .addComponent(BtnLimpiar))
+                .addComponent(lbdError)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void textAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAgregarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textAgregarProductoActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
+    private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_BtnGuardarActionPerformed
+
+    private void textPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textPrecioActionPerformed
+
+    private void rdbDisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbDisponibleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdbDisponibleActionPerformed
+
+    public String getNombre() {
+        return textAgregarProducto.getText();
     }
 
+    public int getPrecio() {
+        return textPrecio.getText();
+    }
+
+    public void error(String error) {
+        lbdError.setText(error);
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnGuardar;
+    private javax.swing.JButton BtnLimpiar;
+    private javax.swing.JMenu jMenu1Listar;
+    private javax.swing.JMenu jMenu2Salir;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemListarProductos;
+    private javax.swing.JLabel lbdError;
+    private javax.swing.JLabel lbdNombreProducto;
+    private javax.swing.JLabel lbdPrecio;
+    private javax.swing.JLabel lbdTitulo;
+    private javax.swing.JRadioButton rdbDisponible;
+    private javax.swing.JRadioButton rdbNodisponible;
+    private javax.swing.JTextField textAgregarProducto;
+    private javax.swing.JTextField textPrecio;
     // End of variables declaration//GEN-END:variables
 }
