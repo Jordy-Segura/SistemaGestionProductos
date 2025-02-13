@@ -4,17 +4,22 @@
  */
 package ec.edu.espoch.gestionproductos.vista;
 
+import ec.edu.espoch.gestionproductos.controlador.Controlador;
+
 /**
  *
  * @author jordy
  */
 public class Principal extends javax.swing.JFrame {
+        private Controlador controlador;
+
 
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        //this.controlador = new Controlador(this);
     }
 
     /**
@@ -26,6 +31,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGroupEstado = new javax.swing.ButtonGroup();
         lbdTitulo = new javax.swing.JLabel();
         lbdNombreProducto = new javax.swing.JLabel();
         textAgregarProducto = new javax.swing.JTextField();
@@ -36,6 +42,7 @@ public class Principal extends javax.swing.JFrame {
         textPrecio = new javax.swing.JTextField();
         rdbDisponible = new javax.swing.JRadioButton();
         rdbNodisponible = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1Listar = new javax.swing.JMenu();
         jMenuItemListarProductos = new javax.swing.JMenuItem();
@@ -62,6 +69,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         BtnLimpiar.setText("Limpiar");
+        BtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLimpiarActionPerformed(evt);
+            }
+        });
 
         lbdError.setText("------------------------");
 
@@ -73,25 +85,40 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        btnGroupEstado.add(rdbDisponible);
         rdbDisponible.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        rdbDisponible.setText("Disponible");
+        rdbDisponible.setText("Sí");
         rdbDisponible.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbDisponibleActionPerformed(evt);
             }
         });
 
+        btnGroupEstado.add(rdbNodisponible);
         rdbNodisponible.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        rdbNodisponible.setText("Disponible");
+        rdbNodisponible.setText("No");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("Disponible: ");
 
         jMenu1Listar.setText("Producto");
 
         jMenuItemListarProductos.setText("Listar Productos");
+        jMenuItemListarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemListarProductosActionPerformed(evt);
+            }
+        });
         jMenu1Listar.add(jMenuItemListarProductos);
 
         jMenuBar1.add(jMenu1Listar);
 
         jMenu2Salir.setText("Salir");
+        jMenu2Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2SalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu2Salir);
 
         setJMenuBar(jMenuBar1);
@@ -105,34 +132,36 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(lbdTitulo)
                 .addGap(76, 76, 76))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(153, 153, 153)
+                                .addComponent(textPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbdPrecio))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(33, 33, 33)
+                            .addComponent(lbdNombreProducto))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(153, 153, 153)
-                            .addComponent(textPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(lbdPrecio))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(186, 186, 186)
-                            .addComponent(textAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(133, 133, 133)
-                            .addComponent(lbdError)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(lbdNombreProducto))
+                            .addGap(47, 47, 47)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(textAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(BtnGuardar)
+                                        .addGap(139, 139, 139)
+                                        .addComponent(BtnLimpiar))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(82, 82, 82)
+                                        .addComponent(lbdError))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtnGuardar)
-                                .addGap(139, 139, 139)
-                                .addComponent(BtnLimpiar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rdbDisponible)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rdbNodisponible)
-                                .addGap(9, 9, 9)))))
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(rdbDisponible)
+                        .addGap(86, 86, 86)
+                        .addComponent(rdbNodisponible)))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -148,16 +177,19 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbdPrecio))
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rdbDisponible)
                     .addComponent(rdbNodisponible))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnGuardar)
                     .addComponent(BtnLimpiar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(lbdError)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -180,22 +212,53 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rdbDisponibleActionPerformed
 
+    private void BtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarActionPerformed
+        // TODO add your handling code here:
+        Limpiar();
+    }//GEN-LAST:event_BtnLimpiarActionPerformed
+
+    private void jMenu2SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2SalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jMenu2SalirActionPerformed
+
+    private void jMenuItemListarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarProductosActionPerformed
+        // TODO add your handling code here:
+        ListarProductos objListar = new ListarProductos();
+        objListar.setVisible(true);
+        objListar.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItemListarProductosActionPerformed
+
     public String getNombre() {
         return textAgregarProducto.getText();
     }
 
-    public int getPrecio() {
+    public String getPrecio() {
         return textPrecio.getText();
+    }
+    
+    public boolean getEstado(){
+     return rdbDisponible.isSelected();
     }
 
     public void error(String error) {
         lbdError.setText(error);
     }
-
+    
+    public void Limpiar(){
+        textAgregarProducto.setText("");
+        textPrecio.setText("");
+        rdbDisponible.setSelected(false);
+        rdbNodisponible.setSelected(false);
+        lbdError.setText("------------------------");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnLimpiar;
+    private javax.swing.ButtonGroup btnGroupEstado;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1Listar;
     private javax.swing.JMenu jMenu2Salir;
     private javax.swing.JMenuBar jMenuBar1;
