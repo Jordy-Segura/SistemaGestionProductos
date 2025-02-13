@@ -73,6 +73,9 @@ public class ListarProductos extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
+    public void error(String error) {
+        jTextAreaListarTarea.setText(error.toString());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

@@ -4,6 +4,8 @@
 
 package ec.edu.espoch.gestionproductos;
 
+import ec.edu.espoch.gestionproductos.vista.Principal;
+
 /**
  *
  * @author jordy
@@ -11,6 +13,7 @@ package ec.edu.espoch.gestionproductos;
 public class GestionProductos {
 
     public static void main(String[] args) {
-        
+        Principal objPrincipal=new Principal();
+        objPrincipal.setVisible(true);
     }
 }
